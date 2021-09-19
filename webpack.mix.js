@@ -18,3 +18,4 @@ if (process.argv.includes("--browser-sync")) {
 // Refer the file that was created in Step 2 to be compile
 mix.js(`${resourcesPath}/js/main.js`, `${staticPath}/`).vue({ varsion: 2 });
 mix.sass(`${resourcesPath}/sass/app.scss`, `${staticPath}/`);
+mix.sourceMaps();
