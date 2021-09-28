@@ -1,27 +1,22 @@
+<!DOCTYPE html>
 {% load static %}
-<html>
+{% load mix %}
+<html long="ja">
 
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- refer to CSS that was compiled by Laravel Mix -->
-
-    <!-- <link rel="stylesheet" type="text/css" href="{% static 'build/app.css' %}"> -->
+    <title></title>
+    <link rel="icon" type="image/png" href="{% static 'test.ico' %}">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 
 <body>
     <div id="app">
-        <base-component>
-            {% block main_content %}
-
-            {% endblock %}
-        </base-component>
-
 
     </div>
-
-    <!-- refer to JS that was compiled by Laravel Mix -->
     <script type="text/javascript" src="{% static 'build/main.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -32,8 +27,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
-
-    <script src="https://unpkg.com/vue-cookies@1.7.3/vue-cookies.js"></script>
 </body>
 
 </html>

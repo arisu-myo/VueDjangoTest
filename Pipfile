@@ -13,6 +13,7 @@ pillow = "*"
 django-imagekit = "*"
 django-cleanup = "*"
 djangorestframework-simplejwt = "*"
+djangomix = "*"
 
 [dev-packages]
 flake8 = "*"

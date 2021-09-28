@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     "rest_framework",  # add
     "corsheaders",  # add
     "imagekit",  # add
+    "djangomix",  # add
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -107,8 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:8080',
-    "http://localhost:8000",
+
 ]
 
 CORS_ORIGIN_WHITELISTS = True
@@ -161,3 +161,6 @@ SIMPLE_JWT = {
     'UPDATE_LAST_LOGIN': True,
     'AUTH_HEADER_TYPES': ('Bearer', "JWT"),
 }
+
+# MANIFEST_DIRECTORY = getattr(settings, 'LARAVELMIX_MANIFEST_DIRECTORY','')
+# PUBLIC_URL = getattr(settings, 'LARAVELMIX_PUBLIC_URL', settings.STATIC_URL)

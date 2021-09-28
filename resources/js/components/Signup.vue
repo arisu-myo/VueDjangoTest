@@ -5,14 +5,14 @@
       style="width: 80%; max-width: 500px; margin-top: 10%"
     >
       <div class="card-body">
-        <h1>サインアップ</h1>
+        <h3>サインアップ</h3>
         <form action="#">
           <div>
             <input
               type="text"
               name="username"
               id="username"
-              v-model="username"
+              v-model="signupForm.username"
               placeholder="ユーザーネーム"
               autocomplete="username"
               style="width: 100%; height: 50px; margin-bottom: 1rem 0"
@@ -24,7 +24,7 @@
               type="email"
               name="email"
               id="email"
-              v-model="email"
+              v-model="signupForm.email"
               placeholder="メールアドレス"
               autocomplete="email"
               style="width: 100%; height: 50px"
@@ -39,13 +39,13 @@
                   type="password"
                   placeholder="パスワード"
                   autocomplete="new-password"
-                  v-model="password1"
+                  v-model="signupForm.password1"
                 />
               </div>
               <i
                 id="icon1"
                 class="fas fa-eye-slash"
-                v-on:click="InpTypeChenge(1)"
+                @click="InpTypeChenge(1)"
               ></i>
             </div>
           </div>
@@ -58,7 +58,7 @@
                   type="password"
                   placeholder="パスワード（確認）"
                   autocomplete="new-password"
-                  v-model="password2"
+                  v-model="signupForm.password2"
                 />
               </div>
               <i
@@ -156,7 +156,7 @@
 </style>
 
 <script>
-import axios from "axios";
+import { mapState } from "vuex";
 
 export default {
   name: "SignUp",
@@ -164,13 +164,26 @@ export default {
     return {
       msg: null,
       debug_print: null,
-      username: null,
-      email: null,
-      password1: null,
-      password2: null,
       error_log: null,
       button_active: false,
+
+      signupForm: {
+        email: null,
+        username: null,
+        password1: null,
+        password2: null,
+      },
     };
+  },
+
+  created: function () {
+    document.title = "signup";
+  },
+
+  computed: {
+    ...mapState({
+      LoginStatus: (state) => state.user.LoginStatus,
+    }),
   },
 
   methods: {
@@ -207,28 +220,17 @@ export default {
       }
     },
 
-    CreateUser() {
+    async CreateUser() {
       if (this.button_active === false) {
         alert("利用規約に同意してください。");
         return;
       }
+      //call actions(signup)
+      await this.$store.dispatch("user/signup", this.signupForm);
 
-      let error_log = "";
-      axios.defaults.xsrfCookieName = "csrftoken";
-      axios
-        .post("http://127.0.0.1:8000/api/user/signup/", {
-          email: this.email,
-          username: this.username,
-          password1: this.password1,
-          password2: this.password2,
-        })
-        .then((response) => (this.debug_print = response))
-        .catch((error) => (this.error_log = error.response.data));
-
-      this.username = "";
-      this.email = "";
-      this.password1 = "";
-      this.password2 = "";
+      if (this.LoginStatus) {
+        this.$router.push("/login");
+      }
     },
   },
 };

@@ -1,33 +1,29 @@
 {
-  "name": "vuedjango",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "dev": "npm run development",
-    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "npm run development -- --watch",
-    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "prod": "npm run production",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "dev": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "production": "mix --production"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
+    "axios": "^0.21.4",
+    "browser-sync": "^2.27.5",
+    "browser-sync-webpack-plugin": "^2.3.0",
     "cross-env": "^7.0.3",
     "laravel-mix": "^6.0.31",
     "resolve-url-loader": "^4.0.0",
     "sass": "^1.41.0",
     "sass-loader": "^12.1.0",
+    "vue": "^2.6.14",
     "vue-loader": "^15.9.8",
-    "vue-template-compiler": "^2.6.14"
+    "vue-router": "^3.5.2",
+    "vue-template-compiler": "^2.6.14",
+    "vuex": "^3.6.2"
   },
   "dependencies": {
-    "axios": "^0.21.4",
     "bootstrap-vue": "^2.21.2",
-    "vue": "^2.6.14",
-    "vue-router": "^3.5.2",
-    "vuex": "^3.6.2"
+    "vue-cookies": "^1.7.4"
   }
 }

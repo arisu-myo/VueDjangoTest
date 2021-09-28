@@ -20,14 +20,22 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="#">home</a>
+                <router-link class="nav-link" to="/">home</router-link>
               </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
               <li class="nav-item">
                 <router-link class="nav-link" to="/signup">signup</router-link>
               </li>
               <li class="nav-item">
                 <router-link class="nav-link" to="/login">login</router-link>
               </li>
+
+              <li v-if="User === null" class="navbar-text">
+                ようこそ ゲスト 樣
+              </li>
+              <li v-else class="navbar-text">ようこそ {{ User.name }} 樣</li>
             </ul>
           </div>
         </nav>
@@ -39,12 +47,22 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "App",
   data() {
     return {
       msg: null,
     };
+  },
+  created: function () {
+    document.title = "ホーム";
+  },
+  computed: {
+    ...mapState({
+      LoginStatus: (state) => state.user.LoginStatus,
+      User: (state) => state.user.User,
+    }),
   },
 };
 </script>

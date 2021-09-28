@@ -25,7 +25,9 @@ class UserSignupSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         if validated_data["password1"] != validated_data["password2"]:
-            raise ValueError("パスワードが不一致です")
+            raise serializers.ValidationError(
+                {"password": "パスワード2つの値が一致しません"}
+            )
 
         return User.objects.create_user(
             email=validated_data["email"],
