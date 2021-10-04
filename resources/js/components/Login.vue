@@ -65,6 +65,9 @@ export default {
     };
   },
   created: function () {
+    if (this.LoginStatus) {
+      this.$router.push("/");
+    }
     document.title = "ログイン";
   },
   computed: {

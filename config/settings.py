@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     "corsheaders",  # add
     "imagekit",  # add
     "djangomix",  # add
+    'rest_framework_simplejwt.token_blacklist',  # add
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

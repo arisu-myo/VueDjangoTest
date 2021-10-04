@@ -20,15 +20,15 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <router-link class="nav-link" to="/">home</router-link>
+                <router-link class="nav-link" to="/test">test</router-link>
               </li>
             </ul>
 
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
+              <li v-show="!LoginStatus" class="nav-item">
                 <router-link class="nav-link" to="/signup">signup</router-link>
               </li>
-              <li class="nav-item">
+              <li v-show="!LoginStatus" class="nav-item">
                 <router-link class="nav-link" to="/login">login</router-link>
               </li>
 
@@ -36,6 +36,9 @@
                 ようこそ ゲスト 樣
               </li>
               <li v-else class="navbar-text">ようこそ {{ User.name }} 樣</li>
+              <li v-if="User != null" class="navber-text">
+                <button @click="logout()">ログアウト</button>
+              </li>
             </ul>
           </div>
         </nav>
@@ -48,6 +51,7 @@
 
 <script>
 import { mapState } from "vuex";
+import cookies from "vue-cookies";
 export default {
   name: "App",
   data() {
@@ -57,12 +61,18 @@ export default {
   },
   created: function () {
     document.title = "ホーム";
+    this.$store.dispatch("user/autologin");
   },
   computed: {
     ...mapState({
       LoginStatus: (state) => state.user.LoginStatus,
       User: (state) => state.user.User,
     }),
+  },
+  methods: {
+    async logout() {
+      await this.$store.dispatch("user/logout");
+    },
   },
 };
 </script>

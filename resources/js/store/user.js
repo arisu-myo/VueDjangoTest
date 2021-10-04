@@ -62,6 +62,52 @@ const actions = {
             context.commit("setLoginStatus", true);
             context.commit("setUser", response.data);
             cookies.set("jwt", response.data.access);
+            // console.log(response.data)
+            return false
+        }
+
+        context.commit("setLoginStatus", false);
+        context.commit("setLoginErrorMessage", response.data);
+    },
+    //logout
+    async logout(context) {
+        let response
+        await axios
+            .get("api/user/logout/", {
+                headers: {
+                    Authorization: `JWT ${cookies.get("jwt")}`,
+                },
+            })
+            .then((response_data) => (response = response_data))
+            .catch((error) => (response = error.response));
+
+        if (response.status === 200) {
+            context.commit("setLoginStatus", null);
+            context.commit("setUser", null)
+            cookies.remove("jwt")
+        }
+
+
+    },
+    //auto login
+    async autologin(context) {
+        if (!cookies.isKey("jwt")) {
+            return false
+        }
+
+        let response
+        await axios
+            .get("api/user/login/auto/", {
+                headers: {
+                    Authorization: `JWT ${cookies.get("jwt")}`
+                },
+            })
+            .then((response_data) => (response = response_data))
+            .catch((error) => (response = error.response))
+
+        if (response.status = 200) {
+            context.commit("setLoginStatus", true);
+            context.commit("setUser", response.data);
             return false
         }
 
