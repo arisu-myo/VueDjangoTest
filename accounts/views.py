@@ -1,7 +1,7 @@
 from django.http.response import Http404
 from rest_framework import permissions, status, generics
 from rest_framework.response import Response
-from rest_framework_simplejwt.token_blacklist.models import OutstandingToken
+from rest_framework_simplejwt.token_blacklist.models import BlacklistedToken, OutstandingToken
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.tokens import RefreshToken
 
@@ -56,7 +56,6 @@ class Logout(generics.GenericAPIView):
 
         # User フィルターを追加する
         # token = OutstandingToken.objects.filter(user=request.user.pk)
-        token = OutstandingToken.objects.all().filter(user=request.user)
 
         import subprocess
         from config.settings import BASE_DIR
@@ -66,13 +65,36 @@ class Logout(generics.GenericAPIView):
             shell=True
         )
 
+        token = OutstandingToken.objects.all().filter(user=request.user)
+        black_token = BlacklistedToken.objects.all()
+        black_list = []
+
+        for bt in black_token:
+            black_list.append(bt.token)
+
         try:
             for t in token:
-                RefreshToken(t.token).blacklist()
-        except Exception:
-            return Response(
-                data={"error": "JWT_token is invalid"},
-                status=status.HTTP_401_UNAUTHORIZED
-            )
+
+                if t in black_list:
+                    pass
+                else:
+                    RefreshToken(t.token).blacklist()
+        except Exception as error:
+            return Response(data={
+                "error": str(error)
+            },
+                status=status.HTTP_401_UNAUTHORIZED)
+
+        # try:
+        #     for t in token:
+        #         RefreshToken(t.token).blacklist()
+        # except Exception as e:
+        #     return Response(
+        #         data={
+        #             "error": "JWT_token is invalid",
+        #             "エラー詳細": str(e)
+        #         },
+        #         status=status.HTTP_401_UNAUTHORIZED
+        #     )
 
         return Response(data={"message": "delete jwt"}, status=status.HTTP_200_OK)
