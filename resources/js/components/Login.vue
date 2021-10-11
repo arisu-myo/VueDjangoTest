@@ -33,10 +33,11 @@
       </form>
       <div class="text-right">
         <button
-          class="btn btn-sm btn-primary"
+          class="button neon btn btn-sm btn-primary"
           style="height: 40px; width: 40%; margin-top: 5%"
           @click="UserLogin"
         >
+          <span></span><span></span><span></span><span></span>
           ログイン
         </button>
       </div>

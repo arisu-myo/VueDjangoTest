@@ -85,7 +85,12 @@ const actions = {
             context.commit("setLoginStatus", null);
             context.commit("setUser", null)
             cookies.remove("jwt")
+        } else {
+            context.commit("setLoginStatus", null);
+            context.commit("setUser", null)
+            cookies.remove("jwt")
         }
+
 
 
     },
