@@ -58,13 +58,21 @@ class Logout(generics.GenericAPIView):
         # token = OutstandingToken.objects.filter(user=request.user.pk)
         token = OutstandingToken.objects.all().filter(user=request.user)
 
-        # try:
-        for t in token:
-            RefreshToken(t.token).blacklist()
-        # except Exception:
-        #     return Response(
-        #         data={"error": "JWT_token is invalid"},
-        #         status=status.HTTP_401_UNAUTHORIZED
-        #     )
+        import subprocess
+        from config.settings import BASE_DIR
+        subprocess.run(
+            ["pipenv", "run", "python", "manage.py", "flushexpiredtokens"],
+            cwd=BASE_DIR,
+            shell=True
+        )
+
+        try:
+            for t in token:
+                RefreshToken(t.token).blacklist()
+        except Exception:
+            return Response(
+                data={"error": "JWT_token is invalid"},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
 
         return Response(data={"message": "delete jwt"}, status=status.HTTP_200_OK)

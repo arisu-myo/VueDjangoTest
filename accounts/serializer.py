@@ -44,14 +44,16 @@ class UserLoginSerializer(TokenObtainPairSerializer):
         token['name'] = user.username
         token["email"] = user.email
 
-        try:
-            # DB改変までの暫定処置
-            file_data = open(str(user.user_image_origin), "rb").read()
-            b64_data = base64.b64encode(file_data).decode("utf-8")
-            # print(b64_data)
-            token["icon"] = b64_data
-        except Exception:
-            token["icon"] = None
+        # try:
+        #     # DB改変までの暫定処置
+        #     file_data = open(str(user.user_image_origin), "rb").read()
+        #     b64_data = base64.b64encode(file_data).decode("utf-8")
+        #     # print(b64_data)
+        #     token["icon"] = b64_data
+        # except Exception:
+        #     token["icon"] = None
+
+        token["icon"] = user.user_image_origin.url
 
         return token
 

@@ -32,12 +32,16 @@
                 <router-link class="nav-link" to="/login">login</router-link>
               </li>
 
-              <li v-if="User === null" class="navbar-text">
+              <li v-if="User === null" class="navbar-text" style="margin 10px">
                 ようこそ ゲスト 樣
               </li>
-              <li v-else class="navbar-text">ようこそ {{ User.name }} 樣</li>
-              <li v-if="User != null" class="navber-text">
-                <button @click="logout()">ログアウト</button>
+              <li v-else class="navbar-text" style="padding: 0.5rem">
+                ようこそ {{ User.name }} 樣
+              </li>
+              <li v-if="User != null">
+                <button class="btn btn-outline-success" @click="logout()">
+                  ログアウト
+                </button>
               </li>
             </ul>
           </div>
