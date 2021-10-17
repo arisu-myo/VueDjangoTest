@@ -60,7 +60,7 @@ export default {
   name: "App",
   data() {
     return {
-      msg: null,
+      loading: true,
     };
   },
   created: function () {

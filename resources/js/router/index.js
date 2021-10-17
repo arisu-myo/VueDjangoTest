@@ -5,6 +5,7 @@ import Home from "../components/Home"
 import SignUp from "../components/Signup"
 import Login from "../components/Login"
 import Test from "../components/Test"
+import Loading from "../components/loading"
 import NotFound from "../error/NotFound"
 Vue.use(Router)
 
@@ -30,6 +31,11 @@ export default new Router({
             path: "/test",
             name: "test",
             component: Test
+        },
+        {
+            path: "/loading",
+            name: "loading",
+            component: Loading
         },
         {
             path: "*",
