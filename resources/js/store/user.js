@@ -10,7 +10,10 @@ const state = {
 };
 
 const getters = {
-    username: state => (state.user ? state.username : "")
+    // getUser: function (state) {
+    //     return state.User.user_icon
+
+    // }
 };
 
 const mutations = {
@@ -71,6 +74,11 @@ const actions = {
     },
     //logout
     async logout(context) {
+        let tag1 = document.getElementById("app")
+        tag1.style.pointerEvents = "none"
+
+        context.dispatch("pege/LoadStatus", true, { root: true })
+
         let response
         await axios
             .get("api/user/logout/", {
@@ -91,8 +99,8 @@ const actions = {
             cookies.remove("jwt")
         }
 
-
-
+        context.dispatch("pege/LoadStatus", false, { root: true })
+        tag1.style.removeProperty("pointer-events");
     },
     //auto login
     async autologin(context) {
@@ -118,6 +126,10 @@ const actions = {
 
         context.commit("setLoginStatus", false);
         context.commit("setLoginErrorMessage", response.data);
+
+    },
+    //???
+    async UserIcon(context) {
 
     }
 }

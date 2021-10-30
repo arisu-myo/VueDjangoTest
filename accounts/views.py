@@ -7,6 +7,9 @@ from rest_framework_simplejwt.tokens import RefreshToken
 
 from .models import User
 from . import serializer
+from config.settings import BASE_DIR
+
+import subprocess
 
 
 class CreateUser(generics.CreateAPIView):
@@ -30,6 +33,7 @@ class UserData(generics.GenericAPIView):
             data={
                 "name": request.user.username,
                 "email": request.user.email,
+                "user_icon": request.user.user_image_origin.url
             },
             status=status.HTTP_200_OK)
 
@@ -54,17 +58,13 @@ class Logout(generics.GenericAPIView):
 
     def get(self, request):
 
-        # User フィルターを追加する
-        # token = OutstandingToken.objects.filter(user=request.user.pk)
-
-        import subprocess
-        from config.settings import BASE_DIR
-        subprocess.run(
+        subprocess.Popen(
             ["pipenv", "run", "python", "manage.py", "flushexpiredtokens"],
             cwd=BASE_DIR,
             shell=True
         )
 
+        # User フィルターを追加する
         token = OutstandingToken.objects.all().filter(user=request.user)
         black_token = BlacklistedToken.objects.all()
         black_list = []
@@ -79,22 +79,11 @@ class Logout(generics.GenericAPIView):
                     pass
                 else:
                     RefreshToken(t.token).blacklist()
+
         except Exception as error:
             return Response(data={
                 "error": str(error)
             },
                 status=status.HTTP_401_UNAUTHORIZED)
-
-        # try:
-        #     for t in token:
-        #         RefreshToken(t.token).blacklist()
-        # except Exception as e:
-        #     return Response(
-        #         data={
-        #             "error": "JWT_token is invalid",
-        #             "エラー詳細": str(e)
-        #         },
-        #         status=status.HTTP_401_UNAUTHORIZED
-        #     )
 
         return Response(data={"message": "delete jwt"}, status=status.HTTP_200_OK)

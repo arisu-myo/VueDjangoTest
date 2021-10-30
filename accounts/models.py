@@ -39,7 +39,7 @@ class UserManager(BaseUserManager):
 class ImageChnge:
     def get_image_path(self, filename):
         """ユーザーの画像をリネームする"""
-        prefix = "static/user_image/"
+        prefix = f"static/{self.id}/"
         img_name = str(uuid.uuid4()).replace("-", "")
         extension = os.path.splitext(filename)[-1]
 

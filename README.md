@@ -1,7 +1,7 @@
 # VueDjangoTest
 Vue-Djangoの実験的な実装
 
-※license※
+※license※.
 Copyright (c) Django Software Foundation and individual contributors.
 All rights reserved.
 

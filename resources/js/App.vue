@@ -1,9 +1,15 @@
 <template>
   <div id="app">
+    <div class="fullbox" v-show="Loading">
+      <div class="fullview" v-show="Loading">
+        <div class="loader"></div>
+      </div>
+    </div>
+
     <header>
       <div>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-          <a class="navbar-brand" href="#">日記的なブログ</a>
+          <a class="navbar-brand" href="/">日記的なブログ</a>
 
           <button
             class="navbar-toggler"
@@ -21,6 +27,11 @@
             <ul class="navbar-nav">
               <li class="nav-item">
                 <router-link class="nav-link" to="/test">test</router-link>
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" to="/profile"
+                  >profile</router-link
+                >
               </li>
             </ul>
 
@@ -60,35 +71,43 @@ export default {
   name: "App",
   data() {
     return {
-      loading: true,
+      msg: null,
     };
   },
   created: function () {
-    document.title = "ホーム";
     this.$store.dispatch("user/autologin");
   },
   computed: {
     ...mapState({
       LoginStatus: (state) => state.user.LoginStatus,
       User: (state) => state.user.User,
+      Loading: (state) => state.pege.Loading,
     }),
   },
   methods: {
     async logout() {
+      this.$router.push("/login");
       await this.$store.dispatch("user/logout");
     },
+  },
+  mounted() {
+    document.title = this.$route.name;
+    this.$store.dispatch("pege/LoadStatus", false);
   },
 };
 </script>
 
 <style>
-#app {
+/* #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  /*margin-top: 60px;*/
   margin-bottom: 50px;
-}
+} */
+
+/* #app {
+  pointer-events: none;
+} */
 </style>

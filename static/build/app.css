@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans+JP);
 @charset "UTF-8";
 *,
 *::before,
@@ -12,8 +12,7 @@
 
 body {
   color: #222;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", sans-serif;
 }
 
 main {
@@ -28,6 +27,12 @@ figure {
 
 img {
   max-width: 100%;
+}
+
+#app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
 }
 
 .container {
@@ -387,11 +392,22 @@ img {
   margin: 0 0 1rem 0;
 }
 
+.fullbox {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
 .fullview {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 2;
 }
 
 .loader {

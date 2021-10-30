@@ -69,7 +69,7 @@ export default {
     if (this.LoginStatus) {
       this.$router.push("/");
     }
-    document.title = "ログイン";
+    // document.title = "ログイン";
   },
   computed: {
     ...mapState({
