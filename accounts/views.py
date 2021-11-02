@@ -52,6 +52,10 @@ class PasswordChenge(generics.UpdateAPIView):
             raise Http404
 
 
+class UserDataChange(generics.UpdateAPIView):
+    premission_classes = (permissions.IsAuthenticated,)
+
+
 class Logout(generics.GenericAPIView):
     permission_classes = (permissions.IsAuthenticated,)
     queryset = User.objects.all()

@@ -28,11 +28,6 @@
               <li class="nav-item">
                 <router-link class="nav-link" to="/test">test</router-link>
               </li>
-              <li class="nav-item">
-                <router-link class="nav-link" to="/profile"
-                  >profile</router-link
-                >
-              </li>
             </ul>
 
             <ul class="navbar-nav ml-auto">
@@ -46,8 +41,10 @@
               <li v-if="User === null" class="navbar-text" style="margin 10px">
                 ようこそ ゲスト 樣
               </li>
-              <li v-else class="navbar-text" style="padding: 0.5rem">
-                ようこそ {{ User.name }} 樣
+              <li v-else class="navbar-item" style="padding: 0.5rem">
+                <router-link class="nav-link" to="/profile">
+                  ようこそ {{ User.name }} 樣
+                </router-link>
               </li>
               <li v-if="User != null">
                 <button class="btn btn-outline-success" @click="logout()">

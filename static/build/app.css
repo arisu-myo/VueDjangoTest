@@ -35,6 +35,11 @@ img {
   text-align: center;
 }
 
+header {
+  z-index: 3;
+  position: relative;
+}
+
 .container {
   margin: 0 auto;
   max-width: 1200px;
