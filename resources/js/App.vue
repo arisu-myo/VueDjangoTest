@@ -37,16 +37,15 @@
               <li v-show="!LoginStatus" class="nav-item">
                 <router-link class="nav-link" to="/login">login</router-link>
               </li>
-
               <li v-if="User === null" class="navbar-text" style="margin 10px">
                 ようこそ ゲスト 樣
               </li>
-              <li v-else class="navbar-item" style="padding: 0.5rem">
+              <li v-else class="nav-item" style="padding: 0.5rem">
                 <router-link class="nav-link" to="/profile">
                   ようこそ {{ User.name }} 樣
                 </router-link>
               </li>
-              <li v-if="User != null">
+              <li v-if="User != null" class="nav-item" style="padding: 0.5rem">
                 <button class="btn btn-outline-success" @click="logout()">
                   ログアウト
                 </button>

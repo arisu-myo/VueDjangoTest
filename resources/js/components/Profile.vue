@@ -13,21 +13,47 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
           <p class="text-left">ユーザー名</p>
-          <span v-if="user_image" style="font-size: 20px">{{ User.name }}</span>
+          <span id="user" v-if="user_image" style="font-size: 20px">
+            {{ User.name }}
+          </span>
+
+          <button
+            type=""
+            class="btn btn-outline-primary"
+            style="margin: 1em"
+            @click="InputUser()"
+          >
+            {{ user_button }}
+          </button>
+
+          <input
+            id="user_form"
+            type="text"
+            v-model="user_name"
+            placeholder="ユーザーネーム"
+            style="
+              width: 200px;
+              display: none;
+              border: 1px solid #000;
+              position: relative;
+            "
+          />
         </li>
+
         <li class="list-group-item">
           <p class="text-left">メールアドレス</p>
           <span id="email" v-if="user_image" style="font-size: 20px">
             {{ User.email }}
           </span>
-          <span
+
+          <button
             type=""
             class="btn btn-outline-primary"
             style="margin: 1em"
             @click="InputEmail()"
           >
             {{ email_button }}
-          </span>
+          </button>
 
           <input
             id="email_form"
@@ -43,8 +69,11 @@
           />
         </li>
       </ul>
+      <div class="text-right" v-show="button_flg">
+        <br />
+        <button class="btn btn-success">ぼたんだよぉ～</button>
+      </div>
     </div>
-    {{ email }}
   </div>
 </template>
 
@@ -76,6 +105,10 @@ export default {
       email: "",
       email_flg: false,
       email_button: "変更する",
+      user_name: "",
+      user_flg: false,
+      user_button: "変更する",
+      button_flg: false,
     };
   },
   computed: {
@@ -105,9 +138,24 @@ export default {
         this.email_button = `変更する`;
         this.email_flg = false;
       }
+    },
+    async InputUser() {
+      let flg = this.user_flg;
+      let user_tag = document.getElementById("user");
+      let user_from = document.getElementById("user_form");
 
-      if (this.email != null) {
-        //変更ボタンを表示
+      if (flg === false) {
+        user_tag.style.display = "none";
+        user_from.style.display = "";
+
+        this.user_button = "戻る";
+        this.user_flg = true;
+      } else {
+        user_tag.style.display = "";
+        user_from.style.display = "none";
+
+        this.user_button = "変更する";
+        this.user_flg = false;
       }
     },
   },
@@ -130,6 +178,21 @@ export default {
     LoginStatus: function (newVal, oldVal) {
       if (this.LoginStatus === false) {
         this.$router.push("/");
+      }
+    },
+
+    email: function (val) {
+      if (this.email != "") {
+        this.button_flg = true;
+      } else if (this.user_name === "") {
+        this.button_flg = false;
+      }
+    },
+    user_name: function (val) {
+      if (this.user_name != "") {
+        this.button_flg = true;
+      } else if (this.email === "") {
+        this.button_flg = false;
       }
     },
   },
