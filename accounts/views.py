@@ -54,6 +54,16 @@ class PasswordChenge(generics.UpdateAPIView):
 
 class UserDataChange(generics.UpdateAPIView):
     premission_classes = (permissions.IsAuthenticated,)
+    serializer_class = serializer.UserDataChengeSerializer
+    lookup_field = "email"
+    queryset = User.objects.all()
+
+    def get_object(self):
+        try:
+            instance = self.queryset.get(email=self.request.user.email)
+            return instance
+        except User.DoesNotExist:
+            raise Http404
 
 
 class Logout(generics.GenericAPIView):

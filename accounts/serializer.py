@@ -1,6 +1,7 @@
 # from django.contrib.auth.forms import PasswordChangeForm
-import base64
+# import base64
 from rest_framework import serializers
+from rest_framework.settings import perform_import
 from .models import User
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from django.contrib.auth.hashers import check_password
@@ -26,7 +27,7 @@ class UserSignupSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         if validated_data["password1"] != validated_data["password2"]:
             raise serializers.ValidationError(
-                {"password": "パスワード2つの値が一致しません"}
+                {"error": "パスワード2つの値が一致しません"}
             )
 
         return User.objects.create_user(
@@ -97,5 +98,25 @@ class UserPasswordChengeSerializer(serializers.ModelSerializer):
 
         else:
             instance.super().update(instance, validated_data)
+        instance.save()
+        return instance
+
+
+class UserDataChengeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ("username", "email")
+
+    def update(self, instance, validated_data):
+        if str(validated_data["username"]) == "":
+            validated_data["username"] = instance.username
+            print(instance.username)
+
+        if str(validated_data["email"]) == "":
+            validated_data["email"] = instance.email
+            print(instance.email)
+
+        instance.username = validated_data["username"]
+        instance.email = validated_data["email"]
         instance.save()
         return instance
