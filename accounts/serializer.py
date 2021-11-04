@@ -1,7 +1,6 @@
 # from django.contrib.auth.forms import PasswordChangeForm
 # import base64
 from rest_framework import serializers
-from rest_framework.settings import perform_import
 from .models import User
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from django.contrib.auth.hashers import check_password
