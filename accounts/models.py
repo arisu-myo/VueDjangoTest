@@ -4,8 +4,8 @@ from django.contrib.auth.models import (
 )
 from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
-from imagekit.models import ImageSpecField
-from imagekit.processors import ResizeToFill
+# from imagekit.models import ImageSpecField
+# from imagekit.processors import ResizeToFill
 import uuid
 import os
 
@@ -68,20 +68,21 @@ class User(AbstractBaseUser, PermissionsMixin):
     user_image_origin = models.ImageField(
         _("ユーザーアイコン"),
         upload_to=ImageChnge.get_image_path,
+        default="static/default_image/defa.png",
         blank=True, null=True
     )
 
-    user_image_s = ImageSpecField(
-        source="user_image_origin",
-        processors=[ResizeToFill(250, 250)],
-        format="JPEG"
-    )
+    # user_image_s = ImageSpecField(
+    #     source="user_image_origin",
+    #     processors=[ResizeToFill(250, 250)],
+    #     format="JPEG"
+    # )
 
-    user_image_ss = ImageSpecField(
-        source="user_image_origin",
-        processors=[ResizeToFill(45, 45)],
-        format="JPEG"
-    )
+    # user_image_ss = ImageSpecField(
+    #     source="user_image_origin",
+    #     processors=[ResizeToFill(45, 45)],
+    #     format="JPEG"
+    # )
 
     date_joined = models.DateTimeField(
         _("登録日"),

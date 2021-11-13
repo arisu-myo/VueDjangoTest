@@ -128,8 +128,35 @@ const actions = {
         context.commit("setLoginErrorMessage", response.data);
 
     },
-    //???
-    async UserIcon(context) {
+    //UserChengeData
+    async ChengeData(context, data) {
+
+        if (state.User === null) {
+            return false
+        }
+
+        if (data.name === "") {
+            data.username = state.User.username
+        } else if (data.email === "") {
+            data.email = state.User.email
+        }
+
+        let response
+        axios.defaults.xsrfCookieName = "csrftoken";
+        axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+        await axios
+            .put("api/user/data/chenge/", data, {
+                headers: {
+                    Authorization: `JWT ${cookies.get("jwt")}`
+                },
+            })
+            .then((response_data) => (response = response_data))
+            .catch((error) => (response = error.response));
+
+        if (response.status === 200) {
+            window.location.href = "/profile"
+        }
+
 
     }
 }

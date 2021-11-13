@@ -1,0 +1,184 @@
+t=2021-11-12T03:25:04+0900 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040
+t=2021-11-12T03:25:04+0900 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2021-11-12T03:25:04+0900 lvl=info msg="client session established" obj=csess id=3fc2a675a00d
+t=2021-11-12T03:25:04+0900 lvl=info msg="started tunnel" obj=tunnels name="command_line (http)" addr=http://127.0.0.1:8000 url=http://6503-2400-2650-120-4900-427-b2cd-c9d1-c3c8.jp.ngrok.io
+t=2021-11-12T03:25:04+0900 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=http://127.0.0.1:8000 url=https://6503-2400-2650-120-4900-427-b2cd-c9d1-c3c8.jp.ngrok.io
+t=2021-11-12T03:25:07+0900 lvl=info msg=start pg=/grpc/agent.Web/State id=ef524ae5c9fc45ad
+t=2021-11-12T03:25:07+0900 lvl=info msg="join connections" obj=join id=743b5483f3c9 l=127.0.0.1:8000 r=[2400:2650:120:4900:427:b2cd:c9d1:c3c8]:49421
+t=2021-11-12T03:25:07+0900 lvl=info msg="join connections" obj=join id=c5f43287b164 l=127.0.0.1:8000 r=[2400:2650:120:4900:427:b2cd:c9d1:c3c8]:49421
+t=2021-11-12T03:25:09+0900 lvl=info msg="join connections" obj=join id=3d0f498a8ac2 l=127.0.0.1:8000 r=219.113.86.5:62996
+t=2021-11-12T03:25:10+0900 lvl=info msg="join connections" obj=join id=cd3c6ea4f594 l=127.0.0.1:8000 r=219.113.86.5:62998
+t=2021-11-12T03:26:46+0900 lvl=info msg="join connections" obj=join id=753f55024b17 l=127.0.0.1:8000 r=219.117.33.72:49958
+t=2021-11-12T03:30:27+0900 lvl=info msg="join connections" obj=join id=d3fe69cea4af l=127.0.0.1:8000 r=[2400:2650:120:4900:427:b2cd:c9d1:c3c8]:49421
+t=2021-11-12T03:30:29+0900 lvl=info msg="join connections" obj=join id=b731cc9d9f53 l=127.0.0.1:8000 r=202.231.177.69:39610
+t=2021-11-12T03:34:49+0900 lvl=info msg="join connections" obj=join id=0dc89a53e2ab l=127.0.0.1:8000 r=[2400:2650:120:4900:427:b2cd:c9d1:c3c8]:49421
+t=2021-11-12T03:34:49+0900 lvl=info msg="join connections" obj=join id=41fc2df2b950 l=127.0.0.1:8000 r=[2400:2650:120:4900:427:b2cd:c9d1:c3c8]:49421
+t=2021-11-12T03:35:27+0900 lvl=info msg="join connections" obj=join id=63d4dca46969 l=127.0.0.1:8000 r=[2400:2650:120:4900:427:b2cd:c9d1:c3c8]:49421
+t=2021-11-12T03:39:26+0900 lvl=info msg="join connections" obj=join id=83e56e421fec l=127.0.0.1:8000 r=[2400:2650:120:4900:427:b2cd:c9d1:c3c8]:49421
+t=2021-11-12T03:48:01+0900 lvl=info msg="join connections" obj=join id=3ab2898de247 l=127.0.0.1:8000 r=35.227.62.178:34996
+t=2021-11-12T03:48:01+0900 lvl=info msg="join connections" obj=join id=161feb95f356 l=127.0.0.1:8000 r=34.73.237.25:31378
+t=2021-11-12T03:49:04+0900 lvl=info msg="join connections" obj=join id=521b3cdb044b l=127.0.0.1:8000 r=[2400:2650:120:4900:427:b2cd:c9d1:c3c8]:60763
+t=2021-11-12T03:49:04+0900 lvl=info msg="join connections" obj=join id=8cce826d6d91 l=127.0.0.1:8000 r=[2400:2650:120:4900:427:b2cd:c9d1:c3c8]:60763
+t=2021-11-12T03:49:18+0900 lvl=info msg="join connections" obj=join id=8b02609a0c03 l=127.0.0.1:8000 r=[2400:2650:120:4900:427:b2cd:c9d1:c3c8]:60763
+t=2021-11-12T03:50:22+0900 lvl=info msg="join connections" obj=join id=c8d3a716de16 l=127.0.0.1:8000 r=[2400:2650:120:4900:427:b2cd:c9d1:c3c8]:60763
+t=2021-11-12T03:50:40+0900 lvl=info msg=end pg=/grpc/agent.Web/State id=ef524ae5c9fc45ad status=200 dur=25m33.2138707s
+t=2021-11-12T03:51:40+0900 lvl=info msg="Got quit command" obj=consoleui
+t=2021-11-12T03:51:40+0900 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2021-11-12T03:51:40+0900 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2021-11-12T03:51:40+0900 lvl=info msg="accept failed" obj=csess id=3fc2a675a00d err="reconnecting session closed"
+t=2021-11-12T16:15:02+0900 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040
+t=2021-11-12T16:15:02+0900 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2021-11-12T16:15:02+0900 lvl=info msg="client session established" obj=csess id=1c086109d88f
+t=2021-11-12T16:15:02+0900 lvl=info msg="started tunnel" obj=tunnels name="command_line (http)" addr=http://172.0.0.1:8000 url=http://e6db-2400-2650-120-4900-25b4-d05e-1b29-152.jp.ngrok.io
+t=2021-11-12T16:15:02+0900 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=http://172.0.0.1:8000 url=https://e6db-2400-2650-120-4900-25b4-d05e-1b29-152.jp.ngrok.io
+t=2021-11-12T16:15:31+0900 lvl=warn msg="failed to open private leg" id=c9208f777520 privaddr=172.0.0.1:8000 err="dial tcp 172.0.0.1:8000: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond."
+t=2021-11-12T16:15:33+0900 lvl=warn msg="failed to open private leg" id=7506324b43d9 privaddr=172.0.0.1:8000 err="dial tcp 172.0.0.1:8000: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond."
+t=2021-11-12T16:15:52+0900 lvl=warn msg="failed to open private leg" id=047cd50685b3 privaddr=172.0.0.1:8000 err="dial tcp 172.0.0.1:8000: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond."
+t=2021-11-12T16:16:21+0900 lvl=info msg="Got quit command" obj=consoleui
+t=2021-11-12T16:16:21+0900 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2021-11-12T16:16:21+0900 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2021-11-12T16:16:21+0900 lvl=info msg="accept failed" obj=csess id=1c086109d88f err="reconnecting session closed"
+t=2021-11-12T16:16:33+0900 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040
+t=2021-11-12T16:16:33+0900 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2021-11-12T16:16:33+0900 lvl=info msg="client session established" obj=csess id=6f7eacd8112b
+t=2021-11-12T16:16:33+0900 lvl=info msg="started tunnel" obj=tunnels name="command_line (http)" addr=http://127.0.0.1:8000 url=http://e57c-2400-2650-120-4900-25b4-d05e-1b29-152.jp.ngrok.io
+t=2021-11-12T16:16:33+0900 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=http://127.0.0.1:8000 url=https://e57c-2400-2650-120-4900-25b4-d05e-1b29-152.jp.ngrok.io
+t=2021-11-12T16:16:38+0900 lvl=info msg="join connections" obj=join id=0285ed34afff l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:56184
+t=2021-11-12T16:16:38+0900 lvl=info msg="join connections" obj=join id=0e9595110253 l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:56184
+t=2021-11-12T16:16:40+0900 lvl=info msg="join connections" obj=join id=a10931312b70 l=127.0.0.1:8000 r=210.158.146.196:37860
+t=2021-11-12T17:50:31+0900 lvl=info msg="join connections" obj=join id=78f3a0844e5f l=127.0.0.1:8000 r=35.237.4.214:49208
+t=2021-11-12T17:50:31+0900 lvl=info msg="join connections" obj=join id=b58c0c0c7c26 l=127.0.0.1:8000 r=34.74.42.177:52178
+t=2021-11-12T17:50:33+0900 lvl=info msg="join connections" obj=join id=fe3e7ba2b269 l=127.0.0.1:8000 r=35.196.56.141:53224
+t=2021-11-12T17:50:41+0900 lvl=info msg="join connections" obj=join id=8268c1b1956c l=127.0.0.1:8000 r=[240b:250:3c0:4700:8c1b:636e:2d42:ce26]:61222
+t=2021-11-12T17:50:41+0900 lvl=info msg="join connections" obj=join id=ea6c1f906d3d l=127.0.0.1:8000 r=[240b:250:3c0:4700:8c1b:636e:2d42:ce26]:61222
+t=2021-11-12T17:53:25+0900 lvl=info msg="join connections" obj=join id=1cb34263a2d1 l=127.0.0.1:8000 r=35.227.117.147:10354
+t=2021-11-12T18:16:29+0900 lvl=info msg="Got quit command" obj=consoleui
+t=2021-11-12T18:16:29+0900 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2021-11-12T18:16:29+0900 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2021-11-12T18:16:29+0900 lvl=info msg="accept failed" obj=csess id=6f7eacd8112b err="reconnecting session closed"
+t=2021-11-12T18:16:44+0900 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040
+t=2021-11-12T18:16:44+0900 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2021-11-12T18:16:44+0900 lvl=info msg="client session established" obj=csess id=cf34ff6afe7d
+t=2021-11-12T18:16:44+0900 lvl=info msg="started tunnel" obj=tunnels name="command_line (http)" addr=http://localhost:80 url=http://381e-2400-2650-120-4900-25b4-d05e-1b29-152.jp.ngrok.io
+t=2021-11-12T18:16:44+0900 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=http://localhost:80 url=https://381e-2400-2650-120-4900-25b4-d05e-1b29-152.jp.ngrok.io
+t=2021-11-12T18:16:47+0900 lvl=info msg="join connections" obj=join id=e0cae9cc6154 l=[::1]:80 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:65112
+t=2021-11-12T18:16:47+0900 lvl=info msg="join connections" obj=join id=379aa971781f l=[::1]:80 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:65112
+t=2021-11-12T18:16:47+0900 lvl=info msg="join connections" obj=join id=b49b5c8cb941 l=[::1]:80 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:65112
+t=2021-11-12T18:16:47+0900 lvl=info msg="join connections" obj=join id=64d980fb9008 l=[::1]:80 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:65112
+t=2021-11-12T18:17:04+0900 lvl=info msg="join connections" obj=join id=e0a6de03a130 l=[::1]:80 r=35.237.4.214:39168
+t=2021-11-12T18:17:10+0900 lvl=info msg="join connections" obj=join id=d09e95691bd2 l=[::1]:80 r=[240b:250:3c0:4700:8c1b:636e:2d42:ce26]:49840
+t=2021-11-12T18:17:10+0900 lvl=info msg="join connections" obj=join id=f4edbbb2e2fe l=[::1]:80 r=[240b:250:3c0:4700:8c1b:636e:2d42:ce26]:49840
+t=2021-11-12T18:17:10+0900 lvl=info msg="join connections" obj=join id=ecebd2ff21c6 l=[::1]:80 r=[240b:250:3c0:4700:8c1b:636e:2d42:ce26]:49840
+t=2021-11-12T18:17:10+0900 lvl=info msg="join connections" obj=join id=4b88b9578618 l=[::1]:80 r=[240b:250:3c0:4700:8c1b:636e:2d42:ce26]:49840
+t=2021-11-12T18:18:30+0900 lvl=info msg="Got quit command" obj=consoleui
+t=2021-11-12T18:18:30+0900 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2021-11-12T18:18:30+0900 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2021-11-12T18:18:30+0900 lvl=info msg="accept failed" obj=csess id=cf34ff6afe7d err="reconnecting session closed"
+t=2021-11-12T18:30:07+0900 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040
+t=2021-11-12T18:30:07+0900 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2021-11-12T18:30:07+0900 lvl=info msg="client session established" obj=csess id=3d075e4721b3
+t=2021-11-12T18:30:07+0900 lvl=info msg="started tunnel" obj=tunnels name="command_line (http)" addr=http://127.0.0.1:8000 url=http://e5a0-2400-2650-120-4900-25b4-d05e-1b29-152.jp.ngrok.io
+t=2021-11-12T18:30:07+0900 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=http://127.0.0.1:8000 url=https://e5a0-2400-2650-120-4900-25b4-d05e-1b29-152.jp.ngrok.io
+t=2021-11-12T18:30:14+0900 lvl=info msg="join connections" obj=join id=b2c83f1b75e5 l=127.0.0.1:8000 r=35.196.132.85:41218
+t=2021-11-12T18:30:14+0900 lvl=info msg="join connections" obj=join id=bf3051934c7d l=127.0.0.1:8000 r=34.75.70.202:18098
+t=2021-11-12T18:30:16+0900 lvl=info msg="join connections" obj=join id=fc5dc781a639 l=127.0.0.1:8000 r=35.227.117.147:17842
+t=2021-11-12T18:32:45+0900 lvl=info msg="join connections" obj=join id=7dc5e0165625 l=127.0.0.1:8000 r=35.231.183.197:24794
+t=2021-11-12T18:33:14+0900 lvl=info msg="join connections" obj=join id=3975a032cf7d l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:50274
+t=2021-11-12T18:33:15+0900 lvl=info msg="join connections" obj=join id=649ec080b635 l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:50274
+t=2021-11-12T18:54:09+0900 lvl=info msg="join connections" obj=join id=a2d582c45b3f l=127.0.0.1:8000 r=35.227.57.207:16232
+t=2021-11-12T18:54:16+0900 lvl=info msg="join connections" obj=join id=173837f1de49 l=127.0.0.1:8000 r=126.243.169.248:41974
+t=2021-11-12T18:54:16+0900 lvl=info msg="join connections" obj=join id=bbf195f1c00c l=127.0.0.1:8000 r=126.243.169.248:41974
+t=2021-11-12T19:00:47+0900 lvl=info msg="join connections" obj=join id=b2c906698939 l=127.0.0.1:8000 r=126.243.169.248:42040
+t=2021-11-12T19:32:57+0900 lvl=info msg=start pg=/ id=af113134351bc3a8
+t=2021-11-12T19:32:57+0900 lvl=info msg=end pg=/ id=af113134351bc3a8 status=302 dur=0s
+t=2021-11-12T19:32:57+0900 lvl=info msg=start pg=/inspect/http id=b0364d95829f18e6
+t=2021-11-12T19:32:57+0900 lvl=info msg=end pg=/inspect/http id=b0364d95829f18e6 status=200 dur=4.9995ms
+t=2021-11-12T19:32:57+0900 lvl=info msg=start pg=/static/compiled-css/vendor.c962e5007001e427374a.css id=9a3d85c98913b0fa
+t=2021-11-12T19:32:57+0900 lvl=info msg=start pg=/static/compiled-css/app.abeefa2f1e7ed6a57390.css id=cb7c053e58e91efa
+t=2021-11-12T19:32:57+0900 lvl=info msg=start pg=/static/js/vendor.7efe51701003466ba71c.js id=e4925a87cd01b1b1
+t=2021-11-12T19:32:57+0900 lvl=info msg=start pg=/static/js/app.57e17b1c647cd71763bd.js id=231f1894d441e045
+t=2021-11-12T19:32:57+0900 lvl=info msg=start pg=/static/js/rpx.bb9505282104c4cc0917.js id=d382cb8029e38a18
+t=2021-11-12T19:32:57+0900 lvl=info msg=end pg=/static/compiled-css/app.abeefa2f1e7ed6a57390.css id=cb7c053e58e91efa status=200 dur=34.7467ms
+t=2021-11-12T19:32:57+0900 lvl=info msg=end pg=/static/js/rpx.bb9505282104c4cc0917.js id=d382cb8029e38a18 status=200 dur=32.7463ms
+t=2021-11-12T19:32:57+0900 lvl=info msg=end pg=/static/js/app.57e17b1c647cd71763bd.js id=231f1894d441e045 status=200 dur=33.7467ms
+t=2021-11-12T19:32:57+0900 lvl=info msg=end pg=/static/compiled-css/vendor.c962e5007001e427374a.css id=9a3d85c98913b0fa status=200 dur=34.7467ms
+t=2021-11-12T19:32:57+0900 lvl=info msg=end pg=/static/js/vendor.7efe51701003466ba71c.js id=e4925a87cd01b1b1 status=200 dur=40.4888ms
+t=2021-11-12T19:32:57+0900 lvl=info msg=start pg=/grpc/agent.Web/Preloaded id=f128a3587def0099
+t=2021-11-12T19:32:57+0900 lvl=info msg=start pg=/grpc/agent.Web/State id=e6d13e717d8790bf
+t=2021-11-12T19:32:57+0900 lvl=info msg=start pg=/static/favicon.ico id=ba7c01277f8ea99f
+t=2021-11-12T19:32:57+0900 lvl=info msg=end pg=/static/favicon.ico id=ba7c01277f8ea99f status=200 dur=0s
+t=2021-11-12T19:32:57+0900 lvl=info msg=end pg=/grpc/agent.Web/Preloaded id=f128a3587def0099 status=200 dur=57.8548ms
+t=2021-11-12T19:59:24+0900 lvl=info msg="join connections" obj=join id=6574363c3f8c l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:50907
+t=2021-11-12T19:59:24+0900 lvl=info msg="join connections" obj=join id=38152ba10190 l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:50907
+t=2021-11-12T20:03:12+0900 lvl=info msg="join connections" obj=join id=f54e771ef8bf l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:50907
+t=2021-11-12T20:05:27+0900 lvl=info msg="join connections" obj=join id=dd2a7f50c71d l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:50907
+t=2021-11-12T20:06:31+0900 lvl=info msg=end pg=/grpc/agent.Web/State id=e6d13e717d8790bf status=200 dur=33m33.6673072s
+t=2021-11-12T20:10:19+0900 lvl=info msg="join connections" obj=join id=2f1ce6432efe l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:50907
+t=2021-11-12T20:12:33+0900 lvl=info msg="join connections" obj=join id=a83d0f1b0ea0 l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:50907
+t=2021-11-12T20:12:55+0900 lvl=info msg="join connections" obj=join id=e0c462597aca l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:50907
+t=2021-11-12T20:36:08+0900 lvl=info msg="join connections" obj=join id=dad91b2fd0eb l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:57743
+t=2021-11-12T20:36:08+0900 lvl=info msg="join connections" obj=join id=371a481183f5 l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:57743
+t=2021-11-12T20:57:13+0900 lvl=info msg="join connections" obj=join id=fb0a45cdcf8f l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:51926
+t=2021-11-12T20:57:13+0900 lvl=info msg="join connections" obj=join id=9a490729fd14 l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:51926
+t=2021-11-12T20:58:18+0900 lvl=info msg="join connections" obj=join id=e8aacf1ed7fc l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:51926
+t=2021-11-12T20:59:47+0900 lvl=info msg="join connections" obj=join id=61ec6d61e36c l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:51926
+t=2021-11-12T21:00:09+0900 lvl=info msg="join connections" obj=join id=78ccffc10041 l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:51926
+t=2021-11-12T21:00:58+0900 lvl=info msg="join connections" obj=join id=d8bf13f83db2 l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:51926
+t=2021-11-12T21:01:19+0900 lvl=info msg="join connections" obj=join id=cbcc20ae9d2e l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:51926
+t=2021-11-12T21:03:27+0900 lvl=info msg="join connections" obj=join id=efa2e227147f l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:51926
+t=2021-11-12T21:31:07+0900 lvl=info msg="join connections" obj=join id=d28627d06f47 l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:59259
+t=2021-11-12T21:31:09+0900 lvl=info msg="join connections" obj=join id=9e2eb914fb11 l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:59259
+t=2021-11-12T21:31:13+0900 lvl=info msg="join connections" obj=join id=91212650f126 l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:59259
+t=2021-11-12T21:31:13+0900 lvl=info msg="join connections" obj=join id=97d046c60532 l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:59259
+t=2021-11-12T21:31:22+0900 lvl=info msg="join connections" obj=join id=28d129d93901 l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:59259
+t=2021-11-12T21:36:08+0900 lvl=info msg="join connections" obj=join id=1f7c281932ca l=127.0.0.1:8000 r=52.198.219.160:43610
+t=2021-11-12T21:36:48+0900 lvl=info msg="join connections" obj=join id=77b7750935c9 l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:57481
+t=2021-11-12T21:37:27+0900 lvl=info msg="join connections" obj=join id=bf963f30e8cf l=127.0.0.1:8000 r=52.198.219.160:33072
+t=2021-11-12T21:37:27+0900 lvl=info msg="join connections" obj=join id=525e95873d85 l=127.0.0.1:8000 r=52.198.219.160:33078
+t=2021-11-12T23:28:55+0900 lvl=info msg="join connections" obj=join id=8626cceeb1da l=127.0.0.1:8000 r=66.249.82.240:50206
+t=2021-11-12T23:28:55+0900 lvl=info msg="join connections" obj=join id=cbaf2cfa74b4 l=127.0.0.1:8000 r=66.249.82.250:64586
+t=2021-11-12T23:28:55+0900 lvl=info msg="join connections" obj=join id=1903bc73a9d3 l=127.0.0.1:8000 r=66.249.82.246:58186
+t=2021-11-12T23:28:55+0900 lvl=info msg="join connections" obj=join id=ff2c1db145e8 l=127.0.0.1:8000 r=66.249.82.250:44675
+t=2021-11-12T23:29:03+0900 lvl=info msg="join connections" obj=join id=679c7167db59 l=127.0.0.1:8000 r=66.249.82.247:57511
+t=2021-11-12T23:36:48+0900 lvl=info msg="join connections" obj=join id=8d0ce2610c01 l=127.0.0.1:8000 r=52.198.219.160:58318
+t=2021-11-12T23:58:43+0900 lvl=info msg="join connections" obj=join id=227983dfbcad l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:63450
+t=2021-11-12T23:58:43+0900 lvl=info msg="join connections" obj=join id=e4b2e34f47f3 l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:63450
+t=2021-11-12T23:58:43+0900 lvl=info msg="join connections" obj=join id=1c3efa27f239 l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:63450
+t=2021-11-12T23:58:49+0900 lvl=info msg="join connections" obj=join id=eaffbff5a367 l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:63450
+t=2021-11-12T23:59:29+0900 lvl=info msg="join connections" obj=join id=c6c642cd5d2b l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:63450
+t=2021-11-12T23:59:34+0900 lvl=info msg="join connections" obj=join id=e2e00f5f3a1b l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:63450
+t=2021-11-13T00:00:40+0900 lvl=info msg="join connections" obj=join id=33ef9dd07beb l=127.0.0.1:8000 r=66.249.82.254:53773
+t=2021-11-13T00:00:40+0900 lvl=info msg="join connections" obj=join id=785bb64725e1 l=127.0.0.1:8000 r=66.249.82.254:53773
+t=2021-11-13T00:00:40+0900 lvl=info msg="join connections" obj=join id=dcfa0400a53a l=127.0.0.1:8000 r=66.249.82.252:49220
+t=2021-11-13T00:00:45+0900 lvl=info msg="join connections" obj=join id=2f0b46d6adea l=127.0.0.1:8000 r=66.249.82.245:60061
+t=2021-11-13T00:09:39+0900 lvl=info msg="join connections" obj=join id=c8e63f0dfa42 l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:53964
+t=2021-11-13T00:12:56+0900 lvl=info msg="join connections" obj=join id=42cdfddca9d4 l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:53964
+t=2021-11-13T00:13:09+0900 lvl=info msg="join connections" obj=join id=04e45bd3604e l=127.0.0.1:8000 r=210.158.146.75:41146
+t=2021-11-13T00:13:11+0900 lvl=info msg="join connections" obj=join id=6fa5a0137c8e l=127.0.0.1:8000 r=210.158.146.75:61390
+t=2021-11-13T00:13:11+0900 lvl=info msg="join connections" obj=join id=74a8b9eecf17 l=127.0.0.1:8000 r=210.158.146.75:41674
+t=2021-11-13T00:13:18+0900 lvl=info msg="join connections" obj=join id=3a2f2d7494fd l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:53964
+t=2021-11-13T00:13:18+0900 lvl=info msg="join connections" obj=join id=b6670ec3e51c l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:53964
+t=2021-11-13T00:13:22+0900 lvl=info msg="join connections" obj=join id=0414947f0031 l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:54132
+t=2021-11-13T00:13:25+0900 lvl=info msg="join connections" obj=join id=39084071db28 l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:53964
+t=2021-11-13T00:14:24+0900 lvl=info msg="join connections" obj=join id=5c7089937a59 l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:53964
+t=2021-11-13T00:14:25+0900 lvl=info msg="join connections" obj=join id=a31a9006db32 l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:53964
+t=2021-11-13T17:43:14+0900 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040
+t=2021-11-13T17:43:14+0900 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2021-11-13T17:43:14+0900 lvl=info msg="client session established" obj=csess id=291eaaa788d7
+t=2021-11-13T17:43:14+0900 lvl=info msg="started tunnel" obj=tunnels name="command_line (http)" addr=http://127.0.0.1:8000 url=http://d662-2400-2650-120-4900-25b4-d05e-1b29-152.jp.ngrok.io
+t=2021-11-13T17:43:14+0900 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=http://127.0.0.1:8000 url=https://d662-2400-2650-120-4900-25b4-d05e-1b29-152.jp.ngrok.io
+t=2021-11-13T17:43:24+0900 lvl=info msg="join connections" obj=join id=a0226f159f05 l=127.0.0.1:8000 r=35.237.4.214:32834
+t=2021-11-13T17:43:24+0900 lvl=info msg="join connections" obj=join id=1b3cb42a3c66 l=127.0.0.1:8000 r=35.227.4.115:53030
+t=2021-11-13T17:43:25+0900 lvl=info msg="join connections" obj=join id=d6aecb346778 l=127.0.0.1:8000 r=35.185.118.64:28352
+t=2021-11-13T17:43:29+0900 lvl=info msg="join connections" obj=join id=ac379553cc55 l=127.0.0.1:8000 r=[240b:250:3c0:4700:e817:9f13:1e8c:150b]:51166
+t=2021-11-13T17:43:29+0900 lvl=info msg="join connections" obj=join id=aa74c52f29b6 l=127.0.0.1:8000 r=[240b:250:3c0:4700:e817:9f13:1e8c:150b]:51166
+t=2021-11-13T17:43:31+0900 lvl=info msg="join connections" obj=join id=7aed3f721c97 l=127.0.0.1:8000 r=210.139.253.196:59752
+t=2021-11-13T17:44:25+0900 lvl=info msg="join connections" obj=join id=be69d3975b36 l=127.0.0.1:8000 r=[2400:2650:120:4900:39e6:6a3c:e19c:5c23]:37986
+t=2021-11-13T17:44:25+0900 lvl=info msg="join connections" obj=join id=a74ca8aac106 l=127.0.0.1:8000 r=[2400:2650:120:4900:39e6:6a3c:e19c:5c23]:37986
+t=2021-11-13T17:55:19+0900 lvl=info msg="join connections" obj=join id=b725bc701d3f l=127.0.0.1:8000 r=[240b:250:3c0:4700:e817:9f13:1e8c:150b]:42104
+t=2021-11-13T17:56:35+0900 lvl=info msg="join connections" obj=join id=695a499bb782 l=127.0.0.1:8000 r=[240b:250:3c0:4700:e817:9f13:1e8c:150b]:42104
+t=2021-11-14T00:35:23+0900 lvl=info msg="join connections" obj=join id=5fdba6599c96 l=127.0.0.1:8000 r=[2400:2650:120:4900:39e6:6a3c:e19c:5c23]:43852
+t=2021-11-14T00:35:23+0900 lvl=info msg="join connections" obj=join id=cab5f9242f2d l=127.0.0.1:8000 r=[2400:2650:120:4900:39e6:6a3c:e19c:5c23]:43852
+t=2021-11-14T00:41:21+0900 lvl=info msg="join connections" obj=join id=e5f733219e52 l=127.0.0.1:8000 r=[2400:2650:120:4900:39e6:6a3c:e19c:5c23]:44124
+t=2021-11-14T00:44:58+0900 lvl=info msg="join connections" obj=join id=a7fc47992670 l=127.0.0.1:8000 r=[240b:250:3c0:4700:e817:9f13:1e8c:150b]:51754
+t=2021-11-14T00:44:58+0900 lvl=info msg="join connections" obj=join id=bf03021d1d3b l=127.0.0.1:8000 r=[240b:250:3c0:4700:e817:9f13:1e8c:150b]:51754

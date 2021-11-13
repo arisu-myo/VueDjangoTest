@@ -3,23 +3,33 @@
 {% load mix %}
 <html long="ja">
 
-<head>
-
+<head profile="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
-    <link rel="icon" type="image/png" href="{% static 'test.ico' %}">
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="{% static 'build/app.css' %}">
 
+    <link rel="icon" type="image/png" href="{% static 'icons/favicon.png' %}">
+    <link
+        href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+        rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{% static 'build/app.css.gz' %}">
+    <!-- OGP -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="日記的なブログ">
+    <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'icons/favicon.png' %}">
+    <meta property="og:description" content="実験的なブログです。">
+    <meta name="twitter:card" content="card_image">
+    <meta name="twitter:site" content="@arisu_system">
 </head>
 
 <body>
     <div id="app">
 
     </div>
-    <script type="text/javascript" src="{% static 'build/main.js' %}"></script>
+    <script type="text/javascript" src="{% static 'build/main.js.gz' %}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>

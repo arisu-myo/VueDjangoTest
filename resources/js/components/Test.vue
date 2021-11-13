@@ -1,8 +1,17 @@
 <template>
   <div id="test">
-    <button @click="testFunction()">test</button>
-    <img v-bind:src="test_image" v-if="test_image" />
-    <button @click="DownloadTest()">download</button>
+    <croppa
+      v-model="myCroppa"
+      :width="350"
+      :height="350"
+      placeholder="画像を選択してください。"
+      canvas-color="transparent"
+      :prevent-white-space="true"
+    >
+    </croppa>
+    <button @click="generateImage">画像作成</button>
+    <br />
+    <img class="output" :src="imgUrl" />
   </div>
 </template>
 
@@ -14,31 +23,16 @@ export default {
   data() {
     return {
       msg: null,
-      test_image: null,
+      myCroppa: null,
+      imgUrl: "",
     };
   },
   methods: {
-    testFunction() {
-      let img = "/static/user_image/e923752dec3d4d419f6cdc28900e4f72.jpg";
-      axios
-        .get(img, {
-          responseType: "blob",
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        })
-        .then((response) => {
-          console.log(response);
-          let blob = new Blob([response.data]);
-          this.test_image = window.URL.createObjectURL(blob);
-          console.log(this.test_image);
-        });
-    },
-    DownloadTest() {
-      let link = document.createElement("a");
-      link.href = this.test_image;
-      link.download = "test.png";
-      link.click();
+    async generateImage() {
+      this.myCroppa.generateBlob((blob) => {
+        let url = window.URL.createObjectURL(blob);
+        console.log(url);
+      });
     },
   },
 };

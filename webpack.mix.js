@@ -2,7 +2,7 @@
 
 const { sourceMaps } = require('laravel-mix');
 const mix = require('laravel-mix');
-
+const CompressionPlugin = require('compression-webpack-plugin');
 
 // let staticPath = "static/build";
 // let resourcesPath = "resources";
@@ -16,16 +16,11 @@ const mix = require('laravel-mix');
 // }
 
 
-mix.webpackConfig({
-  devtool: false
-})
 mix.browserSync({                                     // 6. Browsersync
   files: 'static/**/*',                            // (3.Uglify と 5.Watch は記述不要)
   server: 'staic',
   proxy: false
 });
-
-
 
 // Now you can use full mix api
 // Refer the file that was created in Step 2 to be compile
@@ -35,6 +30,14 @@ mix.js(`resources/js/main.js`, `build/main.js`)
 mix.sass(`resources/sass/app.scss`, `build/app.css`);
 mix.setPublicPath("static")
 
+mix.webpackConfig({
+  devtool: false,
+  plugins: [
+    new CompressionPlugin({
+      algorithm: "gzip",
+    })
+  ]
+})
 
 
 /*"name": "vuedjango",

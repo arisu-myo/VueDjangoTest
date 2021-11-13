@@ -101,3 +101,7 @@ class Logout(generics.GenericAPIView):
                 status=status.HTTP_401_UNAUTHORIZED)
 
         return Response(data={"message": "delete jwt"}, status=status.HTTP_200_OK)
+
+
+class UserImageChange(generics.UpdateAPIView):
+    pass

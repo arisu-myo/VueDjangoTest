@@ -6,6 +6,10 @@ import VueCookies from "vue-cookies"
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 // import { VueLoading } from "vue-loading-template"
 
+import Croppa from "vue-croppa"
+import "vue-croppa/dist/vue-croppa.css"
+
+
 import 'bootstrap/dist/css/bootstrap.css' // add
 import 'bootstrap-vue/dist/bootstrap-vue.css' // add
 
@@ -20,6 +24,7 @@ Vue.config.productionTip = true
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 Vue.use(VueCookies)
+Vue.use(Croppa)
 // Vue.use(VueLoading)
 
 new Vue({
