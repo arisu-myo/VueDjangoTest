@@ -1,7 +1,5 @@
 /node_modules
-
 /static
-
 *.sqlite3
 *.db
 db.sqlite3
