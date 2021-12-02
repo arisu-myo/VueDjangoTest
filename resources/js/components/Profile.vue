@@ -1,7 +1,15 @@
 <template>
   <div class="Profile">
+    <div class="fullbox" v-show="Loading">
+      <div class="fullview" v-show="Loading">
+        <div class="loader"></div>
+      </div>
+    </div>
+
+    <!-- モーダルウィンドウ -->
     <div id="overlay" style="display: none">
-      <div id="content">
+      <!-- 画像変更 -->
+      <div id="content-croppa" style="display: none">
         <croppa
           v-model="myCroppa"
           :width="250"
@@ -16,10 +24,36 @@
           <button @click="modalDisplay(0)">close</button>
         </div>
       </div>
+      <!-- パスワード -->
+      <div id="content-pw-chenge">
+        <h4>パスワードの変更</h4>
+        <input
+          type="password"
+          autocomplete="off"
+          placeholder="現在のパスワード"
+          v-model="old_pass"
+        /><br />
+        <input
+          type="password"
+          autocomplete="new-password"
+          placeholder="新しいパスワード"
+          v-model="new_pass1"
+        /><br />
+        <input
+          type="password"
+          autocomplete="new-password"
+          placeholder="新しいパスワード（確認）"
+          v-model="new_pass2"
+        /><br />
+        <button @click="passwordChenge()">変更</button>
+        <button @click="modalDisplay(0)">close</button>
+      </div>
     </div>
+    <!-- メイン画面 -->
     <div class="card col-md-5">
       <h2 class="card-header text-left">ユーザー情報</h2>
       <div class="card-body">
+        <!-- 画像 -->
         <p class="text-left">画像</p>
 
         <div class="profileImg">
@@ -28,9 +62,7 @@
             v-bind:src="user_image"
             v-if="user_image"
           />
-          <!-- テキスト -->
           <div class="profileImg__text" @click="modalDisplay(1)">
-            <!-- <p>変更</p> -->
             <span class="material-icons-outlined" style="font-size: 50px">
               camera_enhance
             </span>
@@ -38,6 +70,7 @@
         </div>
       </div>
       <ul class="list-group list-group-flush">
+        <!-- ユーザー名 -->
         <li class="list-group-item">
           <p class="text-left">ユーザー名</p>
           <span id="user" v-if="user_image" style="font-size: 20px">
@@ -58,6 +91,7 @@
             type="text"
             v-model="username"
             placeholder="ユーザーネーム"
+            autocomplete="off"
             style="
               width: 200px;
               display: none;
@@ -66,7 +100,7 @@
             "
           />
         </li>
-
+        <!-- メールアドレス -->
         <li class="list-group-item">
           <p class="text-left">メールアドレス</p>
           <span id="email" v-if="user_image" style="font-size: 20px">
@@ -87,6 +121,7 @@
             v-model="email"
             type="email"
             placeholder="メールアドレス"
+            autocomplete="off"
             style="
               width: 200px;
               display: none;
@@ -95,7 +130,19 @@
             "
           />
         </li>
+        <!-- パスワード -->
+        <li class="list-group-item">
+          <p class="text-left">パスワード変更</p>
+          <button
+            type=""
+            class="btn btn-outline-primary"
+            @click="modalDisplay(2)"
+          >
+            パスワードを変更する
+          </button>
+        </li>
       </ul>
+      <!-- 名前とメールアドレスの変更ボタン -->
       <div class="text-right" v-show="button_flg">
         <br />
         <button @click="ChengeData" class="btn btn-success">変更</button>
@@ -105,6 +152,11 @@
 </template>
 
 <style scoped>
+#content-pw-chenge input {
+  width: 70%;
+  margin: 0.5em;
+}
+
 img {
   width: 100%;
   height: 100%;
@@ -136,7 +188,14 @@ img {
   justify-content: center;
 }
 
-#content {
+#content-croppa {
+  z-index: 10;
+  max-width: 400px;
+  width: 80%;
+  padding: 1em;
+  background-color: #fff;
+}
+#content-pw-chenge {
   z-index: 10;
   max-width: 400px;
   width: 80%;
@@ -196,12 +255,16 @@ export default {
       button_flg: false,
       myCroppa: null,
       imgUrl: "",
+      old_pass: "",
+      new_pass1: "",
+      new_pass2: "",
     };
   },
   computed: {
     ...mapState({
       User: (state) => state.user.User,
       LoginStatus: (state) => state.LoginStatus,
+      Loading: (state) => state.pege.Loading,
     }),
   },
   created() {
@@ -261,21 +324,67 @@ export default {
     },
     async modalDisplay(index) {
       let modal = document.getElementById("overlay");
+      let con_croppa = document.getElementById("content-croppa");
+      let pw_chenge = document.getElementById("content-pw-chenge");
 
       if (index === 1) {
         modal.style.display = "";
+        con_croppa.style.display = "";
+        pw_chenge.style.display = "none";
+      } else if (index === 2) {
+        modal.style.display = "";
+        con_croppa.style.display = "none";
+        pw_chenge.style.display = "";
       } else {
         modal.style.display = "none";
       }
     },
     async generateImage() {
       this.myCroppa.generateBlob((blob) => {
+        if (blob === null) {
+          return false;
+        }
         let url = window.URL.createObjectURL(blob);
-        console.log(url);
+        // console.log(blob.type);
+        const data = new FormData();
+        data.append("user_image_origin", blob, "image.png");
+        this.$store.dispatch("user/ImageChenge", data);
+        // console.log(url);
       });
     },
+    async passwordChenge() {
+      if (this.old_pass === "") {
+        return false;
+      } else if (this.new_pass1 === "") {
+        return false;
+      } else if (this.new_pass2 === "") {
+        return false;
+      }
+
+      if (this.new_pass1 != this.new_pass2) {
+        alert("パスワードが一致していません。");
+        return false;
+      }
+
+      if (this.old_pass === this.new_pass1) {
+        alert("前回のパスワードは使用できません。");
+        return false;
+      }
+
+      const data = {
+        password: this.old_pass,
+        new_password: this.new_pass1,
+      };
+
+      await this.$store.dispatch("user/passChenge", data);
+      // await this.$store.dispatch("user/logout");
+      window.location.href = "/login";
+    },
   },
-  mounted() {},
+  mounted() {
+    this.username = "";
+    this.email = "";
+  },
   watch: {
     User: function (newVal, oldVal) {
       if (this.User != null) {

@@ -17,10 +17,15 @@
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="{% static 'build/app.css.gz' %}">
     <!-- OGP -->
-    <meta property="og:type" content="website">
     <meta property="og:title" content="日記的なブログ">
     <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'icons/favicon.png' %}">
     <meta property="og:description" content="実験的なブログです。">
+    <meta property="og:type" content="video">
+    <meta property="og:video:url" content="{{ request.scheme }}://{{ request.get_host }}/media/video/114514.mp4">
+    <meta property="og:video:secure_url" content="{{ request.scheme }}://{{ request.get_host }}/media/video/114514.mp4">
+    <meta property="og:video:type" content="video/mp4">
+    <meta property="og:video:width" content="1920">
+    <meta property="og:video:height" content="1080">
     <meta name="twitter:card" content="card_image">
     <meta name="twitter:site" content="@arisu_system">
 </head>

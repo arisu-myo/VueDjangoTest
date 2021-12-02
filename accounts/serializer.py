@@ -7,6 +7,8 @@ from django.contrib.auth.hashers import check_password
 # from django.contrib.auth import forms
 # from rest_framework.response import Response
 # from rest_framework import status
+from django.contrib.auth import authenticate, login
+from config.settings import DEBUG
 
 
 class UserSignupSerializer(serializers.ModelSerializer):
@@ -66,6 +68,16 @@ class UserLoginSerializer(TokenObtainPairSerializer):
         data["email"] = str(refresh["email"])
         data["user_icon"] = str(refresh["icon"])
 
+        if DEBUG:
+            user = authenticate(
+                email=attrs["email"],
+                password=attrs["password"])
+
+            print(user)
+
+            if user is not None:
+                login(self.context.get("request"), user)
+
         return data
 
 
@@ -92,7 +104,7 @@ class UserPasswordChengeSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Validation failed.")
 
         if "new_password" in validated_data:
-            print(validated_data["new_password"])
+            # print(validated_data["new_password"])
             instance.set_password(validated_data["new_password"])
 
         else:
@@ -117,5 +129,17 @@ class UserDataChengeSerializer(serializers.ModelSerializer):
 
         instance.username = validated_data["username"]
         instance.email = validated_data["email"]
+        instance.save()
+        return instance
+
+
+class UserImageChengeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ("user_image_origin",)
+
+    def update(self, instance, validated_data):
+        # print(validated_data)
+        instance.user_image_origin = validated_data["user_image_origin"]
         instance.save()
         return instance

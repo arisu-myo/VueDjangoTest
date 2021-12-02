@@ -20,6 +20,7 @@
 @import "neonButton";
 @import "ribbon";
 @import "signup_form";
+@import "video.js/dist/video-js.css";
 
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP");
@@ -29,6 +30,31 @@
 
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
+
+.video-js {
+    .vjs-big-play-button {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        // margin: auto;
+        width: 6em;
+        height: 3em;
+        border-radius: 20px;
+        .vjs-icon-placeholder::before{
+            top:20% !important;
+      }
+    }
+    
+  
+    .vjs-play-control:before {
+      top: 20% !important;
+      // content: "\f101";
+      font-size: 48px;
+    }
+    
+  }
+  
+
 
 // Font Awesome
 // @import "~@fortawesome/fontawesome-free/scss/fontawesome";

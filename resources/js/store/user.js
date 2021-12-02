@@ -108,25 +108,23 @@ const actions = {
             return false
         }
 
-        let response
         await axios
             .get("api/user/login/auto/", {
                 headers: {
                     Authorization: `JWT ${cookies.get("jwt")}`
-                },
+                }
             })
-            .then((response_data) => (response = response_data))
-            .catch((error) => (response = error.response))
-
-        if (response.status = 200) {
-            context.commit("setLoginStatus", true);
-            context.commit("setUser", response.data);
-            return false
-        }
-
-        context.commit("setLoginStatus", false);
-        context.commit("setLoginErrorMessage", response.data);
-
+            .then(res => {
+                if (res.status === 200) {
+                    context.commit("setLoginStatus", true)
+                    context.commit("setUser", res.data)
+                }
+            })
+            .catch(error => {
+                context.commit("setLoginStatus", false)
+                context.commit("setLoginErrorMessage", error.response.data)
+                console.log(error.response.data)
+            })
     },
     //UserChengeData
     async ChengeData(context, data) {
@@ -156,8 +154,64 @@ const actions = {
         if (response.status === 200) {
             window.location.href = "/profile"
         }
+    },
+    async ImageChenge(context, data) {
+        if (state.User === null) {
+            return false
+        }
 
+        console.log(data.type)
+        axios.defaults.xsrfCookieName = "csrftoken";
+        axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+        await axios
+            .put("api/user/image/chenge/", data, {
+                headers: {
+                    "content-type": "multipart/form-data",
+                    Authorization: `JWT ${cookies.get("jwt")}`
 
+                }
+            })
+            .then((res) => {
+                let responce = res
+                if (responce.status === 200) {
+                    // window.location.href = "/profile"
+                }
+            })
+            .catch((error) => console.log(error.response))
+    },
+    async passChenge(context, data) {
+        axios.defaults.xsrfCookieName = "csrftoken";
+        axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+        await axios
+            .put("api/user/password/chenge/", data, {
+                headers: {
+                    Authorization: `JWT ${cookies.get("jwt")}`
+                }
+            })
+            .then(res => {
+                if (res.status === 200) {
+                    alert("パスワードの変更に成功しました。")
+
+                }
+            })
+            .catch(error => {
+                alert("パスワードの変更に失敗しました。")
+            })
+        await axios
+            .get("api/user/logout/", {
+                headers: {
+                    Authorization: `JWT ${cookies.get("jwt")}`,
+                },
+            })
+            .then(res => {
+                if (res.status === 200) {
+                    cookies.remove("jwt")
+                }
+            })
+            .catch(error => {
+                console.log(error)
+                cookies.remove("jwt")
+            })
     }
 }
 
