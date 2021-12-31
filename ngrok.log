@@ -1254,3 +1254,16 @@ t=2021-12-01T02:49:03+0900 lvl=info msg="Got quit command" obj=consoleui
 t=2021-12-01T02:49:03+0900 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
 t=2021-12-01T02:49:03+0900 lvl=info msg="session closing" obj=tunnels.session err=nil
 t=2021-12-01T02:49:03+0900 lvl=info msg="accept failed" obj=csess id=a79aecf6c64d err="reconnecting session closed"
+t=2021-12-04T17:47:49+0900 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040
+t=2021-12-04T17:47:49+0900 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2021-12-04T17:47:49+0900 lvl=info msg="client session established" obj=csess id=56ed174e5068
+t=2021-12-04T17:47:49+0900 lvl=info msg="started tunnel" obj=tunnels name="command_line (http)" addr=http://127.0.0.1:8000 url=http://ec45-2400-2650-120-4900-25b4-d05e-1b29-152.jp.ngrok.io
+t=2021-12-04T17:47:49+0900 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=http://127.0.0.1:8000 url=https://ec45-2400-2650-120-4900-25b4-d05e-1b29-152.jp.ngrok.io
+t=2021-12-04T17:47:52+0900 lvl=info msg="join connections" obj=join id=c9d5535acbcb l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:51608
+t=2021-12-04T17:47:52+0900 lvl=info msg="join connections" obj=join id=8ae4dcb681d2 l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:51608
+t=2021-12-04T17:47:54+0900 lvl=info msg="join connections" obj=join id=8ee776999d64 l=127.0.0.1:8000 r=210.253.46.72:58734
+t=2021-12-04T17:47:55+0900 lvl=info msg="join connections" obj=join id=5d5407292473 l=127.0.0.1:8000 r=210.253.46.72:45528
+t=2021-12-04T17:47:55+0900 lvl=info msg="join connections" obj=join id=34e3faf6177d l=127.0.0.1:8000 r=210.253.46.72:61120
+t=2021-12-04T17:48:20+0900 lvl=info msg="join connections" obj=join id=97dab239a679 l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:51608
+t=2021-12-04T17:48:20+0900 lvl=info msg="join connections" obj=join id=2ab45fddbb4e l=127.0.0.1:8000 r=[2400:2650:120:4900:25b4:d05e:1b29:152]:51608
+t=2021-12-04T17:48:22+0900 lvl=info msg="join connections" obj=join id=dfcb88894431 l=127.0.0.1:8000 r=210.139.253.198:40314

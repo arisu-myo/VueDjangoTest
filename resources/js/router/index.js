@@ -9,7 +9,6 @@ import Login from "../components/Login"
 import Test from "../components/Test"
 import Loading from "../components/loading"
 import Profile from "../components/Profile"
-import SeinProfile from "../components/Sein-profile"
 
 // not found
 import NotFound from "../error/NotFound"
@@ -48,11 +47,6 @@ export default new Router({
             path: "/profile",
             name: "プロフィール",
             component: Profile,
-        },
-        {
-            path: "/sein-profile",
-            name: "sein-profile",
-            component: SeinProfile
         },
         {
             path: "*",

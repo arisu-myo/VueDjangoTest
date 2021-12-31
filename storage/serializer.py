@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import Files
 # from .hls import ChengeHls
 import os
+from .hls import encode_m3u8
 
 
 class UploadSerializer(serializers.ModelSerializer):
@@ -36,5 +37,9 @@ class UploadSerializer(serializers.ModelSerializer):
         files.file_description = validated_data["file_description"]
         files.file = validated_data["file"]
         files.save()
+        # print(files.file.path)
+        # print(files.file.name)
 
+        files.file_m3u8 = encode_m3u8(files)
+        files.save()
         return files

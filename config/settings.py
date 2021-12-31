@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+# from django.core.files.storage import default_storage
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,6 +31,9 @@ ALLOWED_HOSTS = [
     "*"
 ]
 
+# GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = "config/test-user.json"
+# # GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = None
+# GOOGLE_DRIVE_STORAGE_MEDIA_ROOT = 'media'  # OPTIONAL
 
 # Application definition
 
@@ -39,6 +43,7 @@ INSTALLED_APPS = [
     "imagekit",  # add
     "django_cleanup",  # add
     "djangomix",  # add
+    # "gdstorage",  # add google drive
     'rest_framework_simplejwt.token_blacklist',  # add
     'django.contrib.admin',
     'django.contrib.auth',

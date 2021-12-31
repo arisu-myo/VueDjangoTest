@@ -10,14 +10,19 @@
         height=""
         @click="controlVideo"
       ></video> -->
+      <button @click="chengeVideo">test</button>
       <div style="width: 80%">
         <video-player :options="videoOptions" />
       </div>
+      <!-- <video controls width="80%">
+        <source
+          src="media/1599366a-e30c-42fd-b2e8-9b41a41186be/3d6a2eaafbf0463a89c8241532a4a648.mp4"
+        />
+      </video> -->
       <!-- <button @click="this.videoPlay">video play</button> -->
     </div>
   </div>
 </template>
-
 <style scoped>
 /* -43.65% */
 .vjs_video_3-dimensions {
@@ -31,6 +36,8 @@
 <script>
 import Hls from "hls.js";
 import VideoPlayer from "./videojs.vue";
+import axios from "axios";
+import { mapState } from "vuex";
 
 export default {
   components: {
@@ -38,18 +45,8 @@ export default {
   },
   data: () => {
     return {
-      hls: new Hls({
-        manifestLoadingTimeOut: 3000, // マスターマニフェストのタイムアウト(ミリ秒)
-        manifestLoadingMaxRetry: 10, // マスターマニフェストを何回リトライするか
-        manifestLoadingMaxRetryTimeout: 3000, // タイムアウトしたあとリトライするまでの最大待機時間(ミリ秒)
-        levelLoadingTimeOut: 3000, // レベルマニフェストのタイムアウト(ミリ秒)
-        levelLoadingMaxRetry: 10, // レベルマニフェストを何回リトライするか
-        levelLoadingMaxRetryTimeout: 3000, // タイムアウトしたあとリトライするまでの最大待機時間(ミリ秒)
-        fragLoadingTimeOut: 3000, // 動画データのタイムアウト(ミリ秒)
-        fragLoadingMaxRetry: 10, // 動画データを何回リトライするか
-        fragLoadingMaxRetryTimeout: 3000, // 動画データがタイムアウトしたあとリトライするまでの最大待機時間(ミリ秒)
-        liveBackBufferLength: 0, // 再生し終わったデータを保持する長さ(秒)
-      }),
+      video_url: null,
+      hls: new Hls({}),
       videoflg1: true,
       videoOptions: {
         controls: true,
@@ -57,42 +54,27 @@ export default {
         autoplay: false,
         sources: [
           {
-            src: "media/video/output.m3u8",
+            // withCredentials: false,
             type: "application/x-mpegURL",
+            // src: "/media/6b2ce74c-2e54-44e6-bc65-de88ccec641f/f5754471f7eb4ef8acc0370c35daab10/f5754471f7eb4ef8ac_1RiW1Q7.m3u8",
+            // src: "",
           },
         ],
       },
     };
   },
-  methods: {
-    controlVideo() {
-      if (this.videoflg1) {
-        this.videoflg1 = false;
-        this.videoPlay();
-      } else {
-        // this.hls.destroy();
-      }
-    },
-
-    videoPlay: function () {
-      const video = document.getElementById("video");
-      const videoUrl = "media/video/output.m3u8";
-      if (Hls.isSupported()) {
-        let hls = this.hls;
-        hls.loadSource(videoUrl);
-        hls.attachMedia(video);
-        // video.play();
-        // this.hls.on(hls.Evants.MANIFEST_PARSED,func  video.play();
-        hls.on(Hls.Events.MANIFEST_PARSED, function () {
-          video.play();
-        });
-      } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
-        video.src = videoUrl;
-        video.addEventListener("canplay", () => {
-          video.play();
-        });
-      }
+  computed: {
+    // ...mapState({
+    //   VideoURL: (state) => state.pege.VideoURL,
+    // }),
+    createURL() {
+      axios.get("api/file/list").then((responce) => {
+        console.log(Object.values(responce.data)[0]);
+        this.props.sources[0].src = Object.values(responce.data)[0];
+        // this.VideoPlayer.src = Object.values(responce.data)[0];
+      });
     },
   },
+  methods: {},
 };
 </script>

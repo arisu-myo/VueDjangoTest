@@ -4,6 +4,7 @@ from accounts.models import User
 from django.utils import timezone
 import uuid
 import os
+
 # Create your models here.
 
 
@@ -14,7 +15,7 @@ class file_path:
         img_name = str(uuid.uuid4()).replace("-", "")
         extension = os.path.splitext(filename)[-1]
 
-        return prefix + img_name + extension
+        return f"{prefix}{img_name}/{img_name}{extension}"
 
 
 class Files(models.Model):
@@ -35,7 +36,12 @@ class Files(models.Model):
     )
 
     file = models.FileField(
+        # upload_to=file_path.path_name,
         upload_to=file_path.path_name
+    )
+
+    file_m3u8 = models.FileField(
+        null=True, blank=True
     )
 
     upload_data = models.DateTimeField(

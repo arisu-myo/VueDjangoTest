@@ -22,6 +22,12 @@ export default {
       player: null,
     };
   },
+  created() {
+    // axios.get("api/file/list").then((responce) => {
+    //   console.log(Object.values(responce.data)[0]);
+    //   this.player.src = Object.values(responce.data)[0];
+    // });
+  },
   mounted() {
     this.player = videojs(
       this.$refs.videoPlayer,

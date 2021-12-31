@@ -3,22 +3,30 @@
 import ffmpeg
 import os
 import time
+import subprocess
+from config import settings
+# import asyncio
 
 # ffmpeg自体はフォルダーを作成できないので注意
 
 
-class ChengeHls:
-    def __init__(self, filename,):
-        pass
+def encode_m3u8(file):
 
-    def is_mp4(self, filename):
-        ext = self.extension(filename)
-        print(ext)
-        if ext != ".mp4":
-            pass
+    filename = f"media/{file.file.name}"
+    new_filename = str(file.file.name).split(".")[0]
 
-    def extension(self, filename):
-        return str(os.path.splitext(filename)[-1])
+    command = [
+        "ffmpeg", "-y", "-i", filename,
+        "-c:v", "copy", "-c:a", "copy",
+        "-f", "hls", "-hls_time", "5",
+        "-hls_playlist_type", "vod",
+        "-hls_segment_filename", f"media/{new_filename}%3d.ts",
+        f"media/{new_filename}.m3u8"
+    ]
+
+    subprocess.run(command, cwd=settings.BASE_DIR)
+
+    return f"{new_filename}.m3u8"
 
 
 def main():
@@ -33,7 +41,7 @@ def main():
     # 並列化等色々使ってより速度を上げるように
     # stream = ffmpeg.hflip(stream)
     print(stream)
-    stream.filter("fps", fps=60)
+    stream.filter("fps", fps=100)
     stream = ffmpeg.output(
         stream, audio,
         "video/output.m3u8",
