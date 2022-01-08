@@ -1,5 +1,6 @@
 
-from django.core.checks.messages import DEBUG
+# from django.core.checks.messages import DEBUG
+
 from django.http.response import Http404
 from rest_framework import permissions,  status, generics
 from rest_framework.response import Response
@@ -79,15 +80,6 @@ class Logout(generics.GenericAPIView):
     queryset = User.objects.all()
 
     def get(self, request):
-        print(request.COOKIES.get("jwt"))
-
-        if settings.DEBUG:
-
-            if request.COOKIES.get("session") is not None:
-                logout(request)
-
-            if request.COOKIES.get("jwt") is None:
-                return Response(data={"message": "logout!"})
 
         if settings.DEBUG:
             subprocess.Popen(
@@ -102,9 +94,7 @@ class Logout(generics.GenericAPIView):
                 shell=True
             )
 
-        if DEBUG:
-            logout(self.request)
-            # User フィルターを追加する
+        # User フィルターを追加する
         token = OutstandingToken.objects.all().filter(user=request.user)
         black_token = BlacklistedToken.objects.all()
         black_list = []
@@ -121,12 +111,18 @@ class Logout(generics.GenericAPIView):
                     RefreshToken(t.token).blacklist()
 
         except Exception as error:
+            # print(error)
             return Response(data={
                 "error": str(error)
             },
                 status=status.HTTP_401_UNAUTHORIZED)
 
-        return Response(data={"message": "delete jwt"}, status=status.HTTP_200_OK)
+        if request.COOKIES.get("sessionid") is not None:
+            logout(request)
+
+        return Response(
+            data={"message": "delete jwt"},
+            status=status.HTTP_200_OK)
 
 
 class UserImageChange(generics.UpdateAPIView):

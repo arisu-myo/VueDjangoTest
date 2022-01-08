@@ -174,7 +174,7 @@ const actions = {
             .then((res) => {
                 let responce = res
                 if (responce.status === 200) {
-                    // window.location.href = "/profile"
+                    window.location.href = "/profile"
                 }
             })
             .catch((error) => console.log(error.response))
