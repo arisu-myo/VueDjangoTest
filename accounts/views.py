@@ -34,10 +34,6 @@ class UserData(generics.GenericAPIView):
 
     def get(self, request):
 
-        # if not request.session.session_key:
-        #     request.session.create()
-        #     http.cookie = request.session.session_key
-        # request.session["has_commented"] = True
         return Response(
             data={
                 "name": request.user.username,

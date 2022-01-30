@@ -19,9 +19,12 @@ class FileList(generics.GenericAPIView):
     queryset = Files.objects.all()
 
     def get(self, request):
+
+        if "id" in request.GET:
+            id = request.GET["id"]
+            print(id)
+
         file_lists = self.queryset.filter(user_link=request.user)
-        lists = {data.file_name: data.file_m3u8.url for data in file_lists}
-        # for data in file_lists:
-        #     print(data.file.url)
-        # print(lists)
+        lists = {data.file_name: data.pk for data in file_lists}
+
         return Response(data=lists, status=status.HTTP_200_OK)

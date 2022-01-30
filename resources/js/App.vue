@@ -28,6 +28,16 @@
               <li class="nav-item">
                 <router-link class="nav-link" to="/test">test</router-link>
               </li>
+              <li class="nav-item">
+                <router-link
+                  class="nav-link"
+                  :to="{
+                    path: '/video_list',
+                  }"
+                >
+                  video
+                </router-link>
+              </li>
             </ul>
 
             <ul class="navbar-nav ml-auto">

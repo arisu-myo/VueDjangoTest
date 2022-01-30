@@ -9,6 +9,9 @@ import Login from "../components/Login"
 import Test from "../components/Test"
 import Loading from "../components/loading"
 import Profile from "../components/Profile"
+import VideoView from "../components/Video"
+import VideoList from "../components/VideoList"
+
 
 // not found
 import NotFound from "../error/NotFound"
@@ -47,6 +50,16 @@ export default new Router({
             path: "/profile",
             name: "プロフィール",
             component: Profile,
+        },
+        {
+            path: "/video",
+            name: "Video",
+            component: VideoView
+        },
+        {
+            path: "/video_list",
+            name: "Userの動画",
+            component: VideoList
         },
         {
             path: "*",

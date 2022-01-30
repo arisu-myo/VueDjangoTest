@@ -19,6 +19,11 @@ class file_path:
 
 
 class Files(models.Model):
+    id = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False
+    )
 
     user_link = models.ForeignKey(
         User,

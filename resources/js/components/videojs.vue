@@ -28,7 +28,10 @@ export default {
   mounted: async function () {
     await axios.get("api/file/list").then((responce) => {
       // console.log(Object.values(responce.data)[1]);
-      this.src = Object.values(responce.data)[1];
+      let id = this.$route.query.id;
+      let user = this.$route.query.user;
+      console.log(user);
+      this.src = Object.values(responce.data)[id];
     });
 
     this.player = videojs(
