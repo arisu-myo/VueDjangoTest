@@ -57,7 +57,7 @@ export default new Router({
             component: VideoView
         },
         {
-            path: "/video_list",
+            path: "/video/list",
             name: "Userの動画",
             component: VideoList
         },

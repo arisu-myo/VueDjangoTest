@@ -5,5 +5,6 @@ app_name = "storage"
 
 urlpatterns = [
     path("upload/", views.UploadFile.as_view(), name="upload"),
-    path("list/", views.FileList.as_view(), name="file_list")
+    path("list/", views.FileList.as_view(), name="file_list"),
+    path("video/", views.VideoURL.as_view(), name="video")
 ]

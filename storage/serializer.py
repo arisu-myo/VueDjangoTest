@@ -14,7 +14,7 @@ class UploadSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Files
-        fields = ("file_name", "file_description", "file")
+        fields = ("file_name", "file_description", "file", "public")
 
     def create(self, validated_data):
 

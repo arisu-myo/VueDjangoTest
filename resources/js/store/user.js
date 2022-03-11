@@ -105,7 +105,7 @@ const actions = {
     //auto login
     async autologin(context) {
         if (!cookies.isKey("jwt")) {
-            return false
+            // window.location.href = "/login"
         }
 
         await axios
@@ -123,7 +123,8 @@ const actions = {
             .catch(error => {
                 context.commit("setLoginStatus", false)
                 context.commit("setLoginErrorMessage", error.response.data)
-                console.log(error.response.data)
+                // console.log(error.response.data)
+
             })
     },
     //UserChengeData

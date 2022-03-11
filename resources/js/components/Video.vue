@@ -2,7 +2,7 @@
   <div>
     <div>
       <!-- <button @click="chengeVideo">test</button> -->
-      <div style="width: 80%">
+      <div class="douga80">
         <video-player :options="videoOptions" />
       </div>
     </div>
@@ -10,10 +10,15 @@
 </template>
 <style scoped>
 /* -43.65% */
+
+.douga80 {
+  width: 100vw;
+}
+
 .vjs_video_3-dimensions {
   position: relative;
   width: 100%;
-  height: 0;
+  height: 0vh;
   padding-top: 56.25%;
 }
 </style>

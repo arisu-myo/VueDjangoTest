@@ -32,7 +32,7 @@
                 <router-link
                   class="nav-link"
                   :to="{
-                    path: '/video_list',
+                    path: '/video/list',
                   }"
                 >
                   video

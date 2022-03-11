@@ -20,7 +20,7 @@
         >
         </croppa>
         <div>
-          <button @click="generateImage">画像作成</button>
+          <button @click="generateImage">変更</button>
           <button @click="modalDisplay(0)">close</button>
         </div>
       </div>

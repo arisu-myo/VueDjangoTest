@@ -26,13 +26,22 @@ export default {
     };
   },
   mounted: async function () {
-    await axios.get("api/file/list").then((responce) => {
-      // console.log(Object.values(responce.data)[1]);
-      let id = this.$route.query.id;
-      let user = this.$route.query.user;
-      console.log(user);
-      this.src = Object.values(responce.data)[id];
-    });
+    let vid = this.$route.query.vid;
+    let user = this.$route.query.user;
+
+    if (user != undefined) {
+      await axios
+        .get(`api/file/video/?id=${vid}&user=${user}`)
+        .then((responce) => {
+          console.log(responce.data);
+          this.src = responce.data;
+        });
+    } else {
+      await axios.get(`api/file/video/?id=${vid}`).then((responce) => {
+        console.log(responce.data);
+        this.src = responce.data;
+      });
+    }
 
     this.player = videojs(
       this.$refs.videoPlayer,

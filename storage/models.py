@@ -49,6 +49,10 @@ class Files(models.Model):
         null=True, blank=True
     )
 
+    public = models.BooleanField(
+        default=False, help_text="すべてのユーザーに公開する。"
+    )
+
     upload_data = models.DateTimeField(
         _("作成日"),
         default=timezone.now
